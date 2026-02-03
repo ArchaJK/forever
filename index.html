@@ -10,7 +10,7 @@
 <link rel="manifest" href="manifest.json">
 
 </head>
-<body>
+<body onclick="startMusic()">
 
 <div class="hero" id="lock">
   <h1>🔒 Enter the password</h1>
@@ -95,7 +95,18 @@ setInterval(() => {
   document.body.appendChild(h);
   setTimeout(() => h.remove(), 12000);
 }, 300);
+
+  <script>
+function startMusic(){
+  const music = document.getElementById("bgMusic");
+  if(music && music.paused){
+    music.play();
+  }
+}
+</script>
+
 </script>
 
 </body>
 </html>
+
