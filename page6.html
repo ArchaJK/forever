@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>School Days 🏫</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<section class="story">
+  <h1>Destiny Had Other Plans ✨</h1>
+<img src="images/pic5.jpg">
+  <p>
+    I moved to another school for 11th standard…
+  </p>
+
+  <p>
+    And you came back —
+    to our old school.
+  </p>
+
+  <p>
+    Only to realize… I wasn’t there.
+  </p>
+
+  <p>
+    Through a common friend,
+    you found my number.
+  </p>
+
+  <p>
+    And we started talking again.
+  </p>
+
+  <button onclick="next()">Next →</button>
+</section>
+
+<audio id="bgMusic" loop autoplay src="music/sng5.mp3"></audio>
+<div id="musicBtn" onclick="toggleMusic()">❤️</div>
+
+<script>
+  function next() {
+    window.location.href = "page7.html";
+  }
+
+  /* ================= FLOATING HEART BACKGROUND ================= */
+setInterval(() => {
+  const h = document.createElement("div");
+  h.className = "heart";
+  h.innerHTML = "❤️";
+  h.style.left = Math.random() * 100 + "vw";
+  h.style.fontSize = 18 + Math.random() * 22 + "px";
+  h.style.animationDuration = 6 + Math.random() * 6 + "s";
+  document.body.appendChild(h);
+  setTimeout(() => h.remove(), 12000);
+}, 300);
+</script>
+
+</body>
+</html>

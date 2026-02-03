@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Best Friends 💕</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<section class="story">
+  <h1>Best Friends 💕</h1>
+  <img src="images/pic2.jpg">
+  <p>Not lovers yet… but hearts already knew.</p>
+  <button onclick="next()">Next →</button>
+</section>
+
+<audio id="bgMusic" loop autoplay src="music/sng2.mp3"></audio>
+<div id="musicBtn" onclick="toggleMusic()">❤️</div>
+
+<script src="js/script.js"></script>
+<script>
+function next() {
+  window.location.href = "page4.html";
+}
+
+/* ================= FLOATING HEART BACKGROUND ================= */
+setInterval(() => {
+  const h = document.createElement("div");
+  h.className = "heart";
+  h.innerHTML = "❤️";
+  h.style.left = Math.random() * 100 + "vw";
+  h.style.fontSize = 18 + Math.random() * 22 + "px";
+  h.style.animationDuration = 6 + Math.random() * 6 + "s";
+  document.body.appendChild(h);
+  setTimeout(() => h.remove(), 12000);
+}, 300);
+</script>
+
+</body>
+</html>

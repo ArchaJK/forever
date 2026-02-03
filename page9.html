@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>School Days 🏫</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<section class="story">
+  <h1>Four Years Apart… 🌙</h1>
+  <img src="images/pic9.jpg">
+
+  <p>
+    We didn’t talk for four long years.
+  </p>
+
+  <p>
+    Until December 2024…
+  </p>
+
+  <p>
+    I texted you.
+  </p>
+
+  <p>
+    And somehow,
+    everything felt right again.
+  </p>
+
+  <button onclick="next()">Next →</button>
+</section>
+
+<audio id="bgMusic" loop autoplay src="music/sng8.mp3"></audio>
+<div id="musicBtn" onclick="toggleMusic()">❤️</div>
+
+<script>
+  function next() {
+    window.location.href = "page10.html";
+  }
+  /* ================= FLOATING HEART BACKGROUND ================= */
+setInterval(() => {
+  const h = document.createElement("div");
+  h.className = "heart";
+  h.innerHTML = "❤️";
+  h.style.left = Math.random() * 100 + "vw";
+  h.style.fontSize = 18 + Math.random() * 22 + "px";
+  h.style.animationDuration = 6 + Math.random() * 6 + "s";
+  document.body.appendChild(h);
+  setTimeout(() => h.remove(), 12000);
+}, 300);
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>School Days 🏫</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<section class="story">
+  <h1>August 11, 2019 💌</h1>
+<img src="images/pic6.jpg">
+  <p>
+    Without knowing how I felt,
+    you gathered the courage
+    and proposed to me.
+  </p>
+
+  <p>
+    I didn’t answer immediately…
+    but my heart already knew.
+  </p>
+
+  <button onclick="next()">Next →</button>
+</section>
+
+<audio id="bgMusic" loop autoplay src="music/sng6.mp3"></audio>
+<div id="musicBtn" onclick="toggleMusic()">❤️</div>
+
+<script>
+  function next() {
+    window.location.href = "page8.html";
+  }
+
+  /* ================= FLOATING HEART BACKGROUND ================= */
+setInterval(() => {
+  const h = document.createElement("div");
+  h.className = "heart";
+  h.innerHTML = "❤️";
+  h.style.left = Math.random() * 100 + "vw";
+  h.style.fontSize = 18 + Math.random() * 22 + "px";
+  h.style.animationDuration = 6 + Math.random() * 6 + "s";
+  document.body.appendChild(h);
+  setTimeout(() => h.remove(), 12000);
+}, 300);
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>School Days 🏫</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<section class="story">
+  <h1>Then… You Left 💔</h1>
+<img src="images/pic3.jpg">
+  <p>
+    After 7th standard, you moved to another school.
+  </p>
+
+  <p>
+    I missed you more than I ever expected.<br>
+    School didn’t feel the same anymore.
+  </p>
+
+  <p>
+    Even when you weren’t there,
+    you were always in my heart.
+  </p>
+
+  <button onclick="next()">Next →</button>
+</section>
+
+<audio id="bgMusic" loop autoplay src="music/sng3.mp3"></audio>
+<div id="musicBtn" onclick="toggleMusic()">❤️</div>
+
+<script>
+  function next() {
+    window.location.href = "page5.html";
+  }
+
+  /* ================= FLOATING HEART BACKGROUND ================= */
+setInterval(() => {
+  const h = document.createElement("div");
+  h.className = "heart";
+  h.innerHTML = "❤️";
+  h.style.left = Math.random() * 100 + "vw";
+  h.style.fontSize = 18 + Math.random() * 22 + "px";
+  h.style.animationDuration = 6 + Math.random() * 6 + "s";
+  document.body.appendChild(h);
+  setTimeout(() => h.remove(), 12000);
+}, 300);
+</script>
+
+</body>
+</html>

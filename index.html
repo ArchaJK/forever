@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>For You ❤️</title>
+  <link rel="stylesheet" href="css/style.css">
+  <meta name="theme-color" content="#ff4d6d">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Forever ❤️">
+<link rel="manifest" href="manifest.json">
+
+</head>
+<body>
+
+<div class="hero" id="lock">
+  <h1>🔒 Enter the password</h1>
+
+  <input type="password" id="pwd" placeholder="Our secret 💕">
+  <p id="hint"></p>
+  <p id="sad"></p>
+
+  <button onclick="unlock()">Unlock ❤️</button>
+</div>
+
+<audio id="bgMusic" loop src="music/sng1.mp3"></audio>
+<div id="musicBtn" onclick="toggleMusic()">❤️</div>
+
+<script src="js/script.js"></script>
+
+<script>
+/* ================= PASSWORD LOGIC ================= */
+const correctPassword = "21112020";
+let tries = 0;
+
+const hints = [
+  "💌 It’s not random… it’s our beginning",
+  "📅 Think of the day everything changed",
+  "🗓️ Day – Month – Year",
+  "❤️ The day I said YES",
+  "🥺 You promised you’d never forget"
+];
+
+/* Typing effect for hints */
+function typeHint(element, text, speed = 45) {
+  element.innerHTML = "";
+  let i = 0;
+
+  function type() {
+    if (i < text.length) {
+      element.innerHTML += text.charAt(i);
+      i++;
+      setTimeout(type, speed);
+    }
+  }
+  type();
+}
+
+function unlock() {
+  const input = document.getElementById("pwd");
+  const hint = document.getElementById("hint");
+  const sad = document.getElementById("sad");
+
+  if (input.value === correctPassword) {
+    document.getElementById("bgMusic").play();
+
+    setTimeout(() => {
+      window.location.href = "page2.html";
+    }, 800);
+    return;
+  }
+
+  tries++;
+  input.classList.add("shake");
+  setTimeout(() => input.classList.remove("shake"), 400);
+
+  if (tries <= hints.length) {
+    typeHint(hint, hints[tries - 1]);
+  }
+
+  if (tries >= 6) {
+    sad.innerText = "😔 Forgetting this date hurts my heart…";
+  }
+
+  input.value = "";
+}
+
+/* ================= FLOATING HEART BACKGROUND ================= */
+setInterval(() => {
+  const h = document.createElement("div");
+  h.className = "heart";
+  h.innerHTML = "❤️";
+  h.style.left = Math.random() * 100 + "vw";
+  h.style.fontSize = 18 + Math.random() * 22 + "px";
+  h.style.animationDuration = 6 + Math.random() * 6 + "s";
+  document.body.appendChild(h);
+  setTimeout(() => h.remove(), 12000);
+}, 300);
+</script>
+
+</body>
+</html>
