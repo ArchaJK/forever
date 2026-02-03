@@ -12,7 +12,8 @@ body{
   display:flex;
   justify-content:center;
   align-items:center;
-  overflow:hidden;
+  overflow-x:hidden;
+  padding:20px;
 }
 
 /* CARD */
@@ -205,7 +206,17 @@ function yes(){
   }
 }
 
+  <script>
+function startMusic(){
+  const music = document.getElementById("bgMusic");
+  if(music && music.paused){
+    music.play();
+  }
+}
+</script>
+
 </script>
 
 </body>
 </html>
+
