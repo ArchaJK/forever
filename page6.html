@@ -4,7 +4,7 @@
   <title>School Days 🏫</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body onclick="startMusic()">
 
 <section class="story">
   <h1>Destiny Had Other Plans ✨</h1>
@@ -53,7 +53,15 @@ setInterval(() => {
   document.body.appendChild(h);
   setTimeout(() => h.remove(), 12000);
 }, 300);
+
+     function startMusic(){
+  const music = document.getElementById("bgMusic");
+  if(music && music.paused){
+    music.play();
+  }
+}
 </script>
 
 </body>
+
 </html>
