@@ -285,3 +285,52 @@ input {
     opacity: 0;
   }
 }
+
+/* ===== COMMON CARD LAYOUT ===== */
+.page-wrap{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+}
+
+.card{
+  background:white;
+  padding:30px;
+  border-radius:20px;
+  max-width:340px;
+  width:100%;
+  text-align:center;
+  position:relative;
+  z-index:2;
+}
+
+.card img{
+  width:100%;
+  height:auto;
+  border-radius:15px;
+  margin:15px 0;
+}
+
+.card h1{
+  font-size:22px;
+  color:#ff4d6d;
+}
+
+.card p{
+  font-size:15px;
+  line-height:1.6;
+  color:#444;
+}
+
+.card button{
+  margin-top:15px;
+  padding:12px 25px;
+  border:none;
+  border-radius:30px;
+  background:#ff4d6d;
+  color:white;
+  font-size:15px;
+  cursor:pointer;
+}
