@@ -3,6 +3,9 @@
 <head>
   <title>For You ❤️</title>
 
+  <!-- IMPORTANT FOR MOBILE -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <!-- Main CSS -->
   <link rel="stylesheet" href="css/style.css">
 
@@ -14,7 +17,7 @@
   <link rel="manifest" href="manifest.json">
 </head>
 
-<body onclick="startMusic()">
+<body>
 
   <!-- ================= PAGE WRAP ================= -->
   <div class="page-wrap">
@@ -98,6 +101,13 @@
       input.value = "";
     }
 
+    /* ===== ENTER KEY SUPPORT (MOBILE FRIENDLY) ===== */
+    document.getElementById("pwd").addEventListener("keypress", function(e){
+      if(e.key === "Enter"){
+        unlock();
+      }
+    });
+
     /* ===== MUSIC CONTROL ===== */
     function startMusic(){
       const music = document.getElementById("bgMusic");
@@ -121,11 +131,11 @@
       h.className = "heart";
       h.innerHTML = "❤️";
       h.style.left = Math.random() * 100 + "vw";
-      h.style.fontSize = 18 + Math.random() * 22 + "px";
+      h.style.fontSize = 16 + Math.random() * 20 + "px";
       h.style.animationDuration = 6 + Math.random() * 6 + "s";
       document.body.appendChild(h);
       setTimeout(() => h.remove(), 12000);
-    }, 300);
+    }, 350);
   </script>
 
 </body>
