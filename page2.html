@@ -1,37 +1,64 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title>School Days 🏫</title>
+
+  <!-- IMPORTANT FOR MOBILE -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Main CSS -->
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body onclick="startMusic()">
 
-<div class="page-wrap">
-  <div class="card">
+<body>
 
-    <h1>It All Started in School 🏫</h1>
+  <!-- ================= PAGE WRAP ================= -->
+  <div class="page-wrap">
 
-    <img src="pic1.jpg">
+    <!-- ================= CARD ================= -->
+    <div class="card">
 
-    <p>Two kids. One classroom. Endless memories.</p>
+      <h1>It All Started in School 🏫</h1>
 
-    <button onclick="next()">Next →</button>
+      <img src="pic1.jpg" alt="School memories">
 
+      <p>Two kids. One classroom. Endless memories.</p>
+
+      <button onclick="next()">Next →</button>
+
+    </div>
   </div>
-</div>
 
-<audio id="bgMusic" loop autoplay src="sng1.mp3"></audio>
-<div id="musicBtn" onclick="toggleMusic()">❤️</div>
+  <!-- ================= MUSIC ================= -->
+  <audio id="bgMusic" loop src="sng1.mp3"></audio>
+  <div id="musicBtn" onclick="toggleMusic()">❤️</div>
 
-<script>
-function next(){
-  window.location.href="page3.html";
-}
-</script>
+  <!-- ================= SCRIPT ================= -->
+  <script>
+    function next(){
+      window.location.href = "page3.html";
+    }
+
+    /* ===== MUSIC CONTROL ===== */
+    function startMusic(){
+      const music = document.getElementById("bgMusic");
+      if (music && music.paused) {
+        music.play().catch(()=>{});
+      }
+    }
+
+    function toggleMusic(){
+      const music = document.getElementById("bgMusic");
+      if (music.paused) {
+        music.play();
+      } else {
+        music.pause();
+      }
+    }
+
+    /* Start music once user interacts */
+    document.addEventListener("click", startMusic, { once:true });
+  </script>
 
 </body>
-
 </html>
-
-
-
