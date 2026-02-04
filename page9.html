@@ -1,69 +1,85 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>School Days 🏫</title>
+  <title>Four Years Apart… 🌙</title>
+
+  <!-- REQUIRED FOR MOBILE -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Main CSS -->
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body onclick="startMusic()">
 
-<div class="page-wrap">
-  <div class="card">
+<body>
 
-  <h1>Four Years Apart… 🌙</h1>
-  <img src="pic9.jpg">
+  <!-- ================= PAGE WRAP ================= -->
+  <div class="page-wrap">
 
-  <p>
-    We didn’t talk for four long years.
-  </p>
+    <!-- ================= CARD ================= -->
+    <div class="card">
 
-  <p>
-    Until December 2024…
-  </p>
+      <h1>Four Years Apart… 🌙</h1>
 
-  <p>
-    I texted you.
-  </p>
+      <img src="pic9.jpg" alt="Four years apart">
 
-  <p>
-    And somehow,
-    everything felt right again.
-  </p>
+      <p>We didn’t talk for four long years.</p>
 
-  <button onclick="next()">Next →</button>
+      <p>Until December 2024…</p>
+
+      <p>I texted you.</p>
+
+      <p>
+        And somehow,
+        everything felt right again.
+      </p>
+
+      <button onclick="next()">Next →</button>
+
+    </div>
   </div>
-</div>
 
+  <!-- ================= MUSIC ================= -->
+  <audio id="bgMusic" loop src="sng8.mp3"></audio>
+  <div id="musicBtn" onclick="toggleMusic()">❤️</div>
 
-<audio id="bgMusic" loop autoplay src="sng8.mp3"></audio>
-<div id="musicBtn" onclick="toggleMusic()">❤️</div>
+  <!-- ================= SCRIPT ================= -->
+  <script>
+    function next() {
+      window.location.href = "page10.html";
+    }
 
-<script>
-  function next() {
-    window.location.href = "page10.html";
-  }
-  /* ================= FLOATING HEART BACKGROUND ================= */
-setInterval(() => {
-  const h = document.createElement("div");
-  h.className = "heart";
-  h.innerHTML = "❤️";
-  h.style.left = Math.random() * 100 + "vw";
-  h.style.fontSize = 18 + Math.random() * 22 + "px";
-  h.style.animationDuration = 6 + Math.random() * 6 + "s";
-  document.body.appendChild(h);
-  setTimeout(() => h.remove(), 12000);
-}, 300);
+    /* ===== MUSIC CONTROL (MOBILE SAFE) ===== */
+    function startMusic(){
+      const music = document.getElementById("bgMusic");
+      if (music && music.paused) {
+        music.play().catch(()=>{});
+      }
+    }
 
-     function startMusic(){
-  const music = document.getElementById("bgMusic");
-  if(music && music.paused){
-    music.play();
-  }
-}
-</script>
+    function toggleMusic(){
+      const music = document.getElementById("bgMusic");
+      if (music.paused) {
+        music.play();
+      } else {
+        music.pause();
+      }
+    }
 
+    /* Start music on first user interaction */
+    document.addEventListener("click", startMusic, { once:true });
+
+    /* ===== FLOATING HEART BACKGROUND ===== */
+    setInterval(() => {
+      const h = document.createElement("div");
+      h.className = "heart";
+      h.innerHTML = "❤️";
+      h.style.left = Math.random() * 100 + "vw";
+      h.style.fontSize = 18 + Math.random() * 22 + "px";
+      h.style.animationDuration = 6 + Math.random() * 6 + "s";
+      document.body.appendChild(h);
+      setTimeout(() => h.remove(), 12000);
+    }, 300);
+  </script>
 
 </body>
-
 </html>
-
-
