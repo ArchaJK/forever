@@ -1,4 +1,6 @@
-/* ===== RESET ===== */
+/* =====================================================
+   RESET
+===================================================== */
 *{
   margin:0;
   padding:0;
@@ -6,14 +8,18 @@
   font-family:'Poppins',sans-serif;
 }
 
-/* ===== BODY ===== */
+/* =====================================================
+   BODY
+===================================================== */
 body{
   min-height:100vh;
   background:linear-gradient(135deg,#ffe4ec,#fdf1f5);
   overflow-x:hidden;
 }
 
-/* ===== PAGE WRAPPER ===== */
+/* =====================================================
+   PAGE WRAPPER
+===================================================== */
 .page-wrap{
   min-height:100vh;
   display:flex;
@@ -22,16 +28,19 @@ body{
   padding:20px;
 }
 
-/* ===== CARD ===== */
+/* =====================================================
+   CARD (USED EVERYWHERE)
+===================================================== */
 .card{
-  background:white;
+  background:#fff;
   padding:30px;
   border-radius:20px;
-  max-width:340px;
+  max-width:360px;
   width:100%;
   text-align:center;
   position:relative;
   z-index:2;
+  box-shadow:0 15px 40px rgba(0,0,0,0.15);
 }
 
 .card h1{
@@ -56,21 +65,37 @@ body{
 
 .card button{
   margin-top:15px;
-  padding:12px 25px;
+  padding:12px 26px;
   border:none;
   border-radius:30px;
   background:#ff4d6d;
   color:white;
   font-size:15px;
   cursor:pointer;
-  transition:0.3s;
+  transition:0.3s ease;
 }
 
 .card button:hover{
   transform:scale(1.08);
 }
 
-/* ===== MUSIC BUTTON ===== */
+/* =====================================================
+   INPUT (PASSWORD)
+===================================================== */
+input{
+  width:100%;
+  padding:12px 20px;
+  border-radius:30px;
+  border:none;
+  font-size:15px;
+  outline:none;
+  text-align:center;
+  margin-top:10px;
+}
+
+/* =====================================================
+   MUSIC BUTTON
+===================================================== */
 #musicBtn{
   position:fixed;
   bottom:20px;
@@ -92,24 +117,35 @@ body{
   100%{transform:scale(1);}
 }
 
-/* ===== FLOATING HEARTS ===== */
+/* =====================================================
+   FLOATING HEART BACKGROUND
+===================================================== */
 .heart{
   position:fixed;
   bottom:-30px;
-  animation:floatHeart linear forwards;
   opacity:0.8;
+  animation:floatHeart linear forwards;
 }
 
 @keyframes floatHeart{
-  from{transform:translateY(0);opacity:1;}
-  to{transform:translateY(-120vh);opacity:0;}
+  from{
+    transform:translateY(0);
+    opacity:1;
+  }
+  to{
+    transform:translateY(-120vh);
+    opacity:0;
+  }
 }
 
-/* ===== CONFETTI ===== */
+/* =====================================================
+   CONFETTI (PAGE 10)
+===================================================== */
 .confetti{
   position:fixed;
   width:10px;
   height:10px;
+  top:0;
   animation:fall linear forwards;
 }
 
@@ -120,7 +156,9 @@ body{
   }
 }
 
-/* ===== FADE OUT ===== */
+/* =====================================================
+   FADE OUT (YES BUTTON)
+===================================================== */
 .fade-out{
   animation:fadeOut 0.8s forwards;
 }
@@ -133,17 +171,9 @@ body{
   }
 }
 
-/* ===== INPUT ===== */
-input{
-  padding:12px 20px;
-  border-radius:30px;
-  border:none;
-  font-size:1rem;
-  outline:none;
-  text-align:center;
-}
-
-/* ===== SHAKE ===== */
+/* =====================================================
+   SHAKE (WRONG PASSWORD)
+===================================================== */
 .shake{
   animation:shake 0.4s;
 }
@@ -154,4 +184,27 @@ input{
   50%{transform:translateX(6px);}
   75%{transform:translateX(-6px);}
   100%{transform:translateX(0);}
+}
+
+/* =====================================================
+   HINT TEXT
+===================================================== */
+#hint, #sad{
+  margin-top:12px;
+  font-size:14px;
+  opacity:0.85;
+}
+
+/* =====================================================
+   REMOVE OLD UNUSED CLASSES (SAFETY)
+===================================================== */
+.story,
+.hero,
+.content,
+.slideshow,
+.bg-slideshow,
+.btn-container,
+.yes-btn,
+.no-btn{
+  all:unset;
 }
