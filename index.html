@@ -16,11 +16,11 @@
 
 <body onclick="startMusic()">
 
-  <!-- ===== PAGE WRAP ===== -->
+  <!-- ================= PAGE WRAP ================= -->
   <div class="page-wrap">
 
-    <!-- ===== LOCK CARD ===== -->
-    <div class="card hero" id="lock">
+    <!-- ================= LOCK CARD ================= -->
+    <div class="card" id="lock">
 
       <h1>🔒 Enter the password</h1>
 
@@ -28,6 +28,7 @@
         type="password"
         id="pwd"
         placeholder="Our secret 💕"
+        autocomplete="off"
       >
 
       <p id="hint"></p>
@@ -38,13 +39,13 @@
     </div>
   </div>
 
-  <!-- ===== MUSIC ===== -->
+  <!-- ================= MUSIC ================= -->
   <audio id="bgMusic" loop src="sng1.mp3"></audio>
   <div id="musicBtn" onclick="toggleMusic()">❤️</div>
 
-  <!-- ===== SCRIPT ===== -->
+  <!-- ================= SCRIPT ================= -->
   <script>
-    /* ================= PASSWORD LOGIC ================= */
+    /* ===== PASSWORD LOGIC ===== */
     const correctPassword = "21112020";
     let tries = 0;
 
@@ -75,8 +76,7 @@
       const sad = document.getElementById("sad");
 
       if (input.value === correctPassword) {
-        document.getElementById("bgMusic").play();
-
+        startMusic();
         setTimeout(() => {
           window.location.href = "page2.html";
         }, 800);
@@ -98,24 +98,24 @@
       input.value = "";
     }
 
-    /* ================= MUSIC ================= */
+    /* ===== MUSIC CONTROL ===== */
     function startMusic(){
       const music = document.getElementById("bgMusic");
-      if(music && music.paused){
-        music.play();
+      if (music && music.paused) {
+        music.play().catch(()=>{});
       }
     }
 
     function toggleMusic(){
       const music = document.getElementById("bgMusic");
-      if(music.paused){
+      if (music.paused) {
         music.play();
       } else {
         music.pause();
       }
     }
 
-    /* ================= FLOATING HEARTS ================= */
+    /* ===== FLOATING HEARTS ===== */
     setInterval(() => {
       const h = document.createElement("div");
       h.className = "heart";
