@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>For You ❤️</title>
 
   <!-- IMPORTANT FOR MOBILE -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="css/style.css">
+  <!-- Main CSS (FIXED PATH) -->
+  <link rel="stylesheet" href="./css/style.css">
 
   <!-- PWA meta -->
   <meta name="theme-color" content="#ff4d6d">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Forever ❤️">
-  <link rel="manifest" href="manifest.json">
+
+  <!-- Manifest (FIXED PATH) -->
+  <link rel="manifest" href="./manifest.json">
 </head>
 
 <body>
@@ -42,13 +45,12 @@
     </div>
   </div>
 
-  <!-- ================= MUSIC ================= -->
-  <audio id="bgMusic" loop src="sng1.mp3"></audio>
+  <!-- ================= MUSIC (FIXED PATH) ================= -->
+  <audio id="bgMusic" loop src="./sng1.mp3"></audio>
   <div id="musicBtn" onclick="toggleMusic()">❤️</div>
 
   <!-- ================= SCRIPT ================= -->
   <script>
-    /* ===== PASSWORD LOGIC ===== */
     const correctPassword = "21112020";
     let tries = 0;
 
@@ -81,7 +83,7 @@
       if (input.value === correctPassword) {
         startMusic();
         setTimeout(() => {
-          window.location.href = "page2.html";
+          window.location.href = "./page2.html"; // FIXED
         }, 800);
         return;
       }
@@ -101,14 +103,12 @@
       input.value = "";
     }
 
-    /* ===== ENTER KEY SUPPORT (MOBILE FRIENDLY) ===== */
     document.getElementById("pwd").addEventListener("keypress", function(e){
       if(e.key === "Enter"){
         unlock();
       }
     });
 
-    /* ===== MUSIC CONTROL ===== */
     function startMusic(){
       const music = document.getElementById("bgMusic");
       if (music && music.paused) {
@@ -118,14 +118,9 @@
 
     function toggleMusic(){
       const music = document.getElementById("bgMusic");
-      if (music.paused) {
-        music.play();
-      } else {
-        music.pause();
-      }
+      music.paused ? music.play() : music.pause();
     }
 
-    /* ===== FLOATING HEARTS ===== */
     setInterval(() => {
       const h = document.createElement("div");
       h.className = "heart";
